@@ -56,14 +56,13 @@
         <div class="search-list slideAnimation"
              ng-if="ctrl.showVideos">
 
-            <div ng-repeat="video in ctrl.getVideos() | filter: ctrl.filter" class="search-list__item">
-                <a href="{{video.link}}">
-                    <div class="search-list__item-image">
-                        <img src="{{video.imgUrl}}">
-                    </div>
-                    <div class="search-list__item-title">{{video.title}}</div>
-                </a>
-            </div>
+            <a href="{{video.link}}" ng-repeat="video in ctrl.getVideos() | filter: ctrl.filter"
+               class="search-list__item">
+                <div class="search-list__item-image">
+                    <img src="{{video.imgUrl}}">
+                </div>
+                <div class="search-list__item-title">{{video.title}}</div>
+            </a>
 
         </div>
     </div>
