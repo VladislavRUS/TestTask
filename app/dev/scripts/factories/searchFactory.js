@@ -33,7 +33,7 @@ function searchFactory($http, $q, $timeout, loaderFactory, constantsFactory, res
             }, function (err) {
                 loaderFactory.hideLoader(constantsFactory.searchLoader);
 
-                console.log('Error occured', err);
+                console.log('Error occurred!', err);
                 deferred.reject();
             });
         }, 2000);

@@ -28,7 +28,7 @@
   width: 300px;
   height: 300px;
   border: 30px solid white;
-  border-top: 30px solid black;
+  border-top: 30px solid #E62117;
   background-color: transparent;
   border-radius: 50%;
   animation: rotate 2.5s linear infinite;
@@ -80,4 +80,8 @@
 }
 .search-pages__button {
   margin-right: 10px;
+  cursor: pointer;
+}
+.search-pages__button._active {
+  font-weight: bold;
 }

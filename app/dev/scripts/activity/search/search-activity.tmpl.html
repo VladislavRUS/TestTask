@@ -1,4 +1,3 @@
-
 <loader ng-if="ctrl.loaderFactory.getLoaderState(ctrl.searchLoader)"></loader>
 
 <div class="search">
@@ -44,6 +43,7 @@
 
     <div class="search-pages" ng-if="ctrl.storage.videos.length">
         <button class="search-pages__button"
+                ng-class="{ '_active': page === ctrl.currentPage }"
                 ng-repeat="page in ctrl.pages"
                 ng-click="ctrl.setCurrentPage(page)">
 
@@ -57,10 +57,12 @@
              ng-if="ctrl.showVideos">
 
             <div ng-repeat="video in ctrl.getVideos() | filter: ctrl.filter" class="search-list__item">
-                <div class="search-list__item-image">
-                    <img src="{{video.imgUrl}}">
-                </div>
-                <div class="search-list__item-title">{{video.title}}</div>
+                <a href="{{video.link}}">
+                    <div class="search-list__item-image">
+                        <img src="{{video.imgUrl}}">
+                    </div>
+                    <div class="search-list__item-title">{{video.title}}</div>
+                </a>
             </div>
 
         </div>
