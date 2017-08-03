@@ -1,0 +1,69 @@
+
+<loader ng-if="ctrl.loaderFactory.getLoaderState(ctrl.searchLoader)"></loader>
+
+<div class="search">
+
+    <div class="search-tab">
+
+        <div class="search-tab__input">
+            <input class="input"
+                   ng-model="ctrl.searchStr"
+                   ng-keyup="$event.keyCode == 13 && ctrl.search()">
+        </div>
+
+        <div class="search-tab__btn" ng-click="ctrl.search()">
+            Search
+        </div>
+    </div>
+
+    <div class="search-header">
+        <div class="search-header__title">
+            <div class="search-header__title-left">
+                Videos
+            </div>
+            <div class="search-header__title-right">
+                spring MVC
+            </div>
+        </div>
+    </div>
+
+    <div class="search-options">
+        <button class="search-options__toggle" ng-click="ctrl.toggleOptions()">*</button>
+
+        <div class="search-options__body slideAnimation" ng-if="ctrl.showOptions">
+            <input type="input" ng-model="ctrl.filterStr">
+
+            <div class="search-options__sort">
+                Sort by name:
+
+                <button class="search-options__sort-btn" ng-click="ctrl.sort('asc')">asc</button>
+                <button class="search-options__sort-btn" ng-click="ctrl.sort('desc')">desc</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-pages" ng-if="ctrl.storage.videos.length">
+        <button class="search-pages__button"
+                ng-repeat="page in ctrl.pages"
+                ng-click="ctrl.setCurrentPage(page)">
+
+            {{page + 1}}
+
+        </button>
+    </div>
+
+    <div class="search-body">
+        <div class="search-list slideAnimation"
+             ng-if="ctrl.showVideos">
+
+            <div ng-repeat="video in ctrl.getVideos() | filter: ctrl.filter" class="search-list__item">
+                <div class="search-list__item-image">
+                    <img src="{{video.imgUrl}}">
+                </div>
+                <div class="search-list__item-title">{{video.title}}</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

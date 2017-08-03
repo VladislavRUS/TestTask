@@ -1,0 +1,33 @@
+{
+  "name": "haulmant_test_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladislavRUS/TestTask.git"
+  },
+  "author": "Kurochkin Vladislav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladislavRUS/TestTask/issues"
+  },
+  "homepage": "https://github.com/VladislavRUS/TestTask#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.2",
+    "gulp-rename": "^1.2.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-ui-router": "^1.0.3",
+    "jquery": "^3.2.1",
+    "velocity-animate": "^1.5.0"
+  }
+}
