@@ -500,7 +500,8 @@ function searchFactory($http, $q, $timeout, loaderFactory, constantsFactory, res
                 factory.videos = resp.data.items.map(function(item) {
                     return {
                         title: item.snippet.title,
-                        imgUrl: item.snippet.thumbnails.default.url,
+                        imgUrl: item.snippet.thumbnails.medium.url,
+						description: item.snippet.description,
                         link: restServiceFactory.videosWatch.replace('{id}', item.id.videoId)
                     }
                 });
@@ -513,7 +514,7 @@ function searchFactory($http, $q, $timeout, loaderFactory, constantsFactory, res
                 console.log('Error occurred!', err);
                 deferred.reject();
             });
-        }, 2000);
+        }, 1000);
 
         return deferred.promise;
     };
@@ -591,6 +592,15 @@ function restServiceFactory() {
 
     return factory;
 }
+function loaderDirective() {
+    return {
+        scope: {},
+        bindToController: {},
+        templateUrl: 'dev/scripts/components/loader/loader.tmpl.html',
+        controller: function () {
+        }
+    }
+}
 function SearchController($timeout, searchFactory, loaderFactory, constantsFactory) {
     var self = this;
 
@@ -639,13 +649,4 @@ function SearchController($timeout, searchFactory, loaderFactory, constantsFacto
     self.sort = function (order) {
         searchFactory.sortVideos({ order: order });
     };
-}
-function loaderDirective() {
-    return {
-        scope: {},
-        bindToController: {},
-        templateUrl: 'dev/scripts/components/loader/loader.tmpl.html',
-        controller: function () {
-        }
-    }
 }

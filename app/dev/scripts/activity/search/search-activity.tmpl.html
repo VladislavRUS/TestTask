@@ -15,41 +15,35 @@
         </div>
     </div>
 
-    <div class="search-header">
-        <div class="search-header__title">
-            <div class="search-header__title-left">
-                Videos
-            </div>
-            <div class="search-header__title-right">
-                spring MVC
-            </div>
-        </div>
-    </div>
-
     <div class="search-options">
-        <button class="search-options__toggle" ng-click="ctrl.toggleOptions()">*</button>
+        <div class="search-options__toggle" ng-click="ctrl.toggleOptions()"><i class="fa fa-2x fa-cog"
+                                                                               aria-hidden="true"></i></div>
 
-        <div class="search-options__body slideAnimation" ng-if="ctrl.showOptions">
-            <input type="input" ng-model="ctrl.filterStr">
+        <div class="slideAnimation" ng-if="ctrl.showOptions">
+            <div class="search-options__body">
+                <div class="search-options__sort">
+                    Sort by name:
 
-            <div class="search-options__sort">
-                Sort by name:
+                    <div class="search-options__sort-btn" ng-click="ctrl.sort('asc')"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i> asc</div>
+                    <div class="search-options__sort-btn" ng-click="ctrl.sort('desc')"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i> desc</div>
+                </div>
 
-                <button class="search-options__sort-btn" ng-click="ctrl.sort('asc')">asc</button>
-                <button class="search-options__sort-btn" ng-click="ctrl.sort('desc')">desc</button>
+                <div class="search-options__input">
+                    <input type="input" ng-model="ctrl.filterStr">
+                </div>
             </div>
         </div>
     </div>
 
     <div class="search-pages" ng-if="ctrl.storage.videos.length">
-        <button class="search-pages__button"
-                ng-class="{ '_active': page === ctrl.currentPage }"
-                ng-repeat="page in ctrl.pages"
-                ng-click="ctrl.setCurrentPage(page)">
+        <div class="search-pages__button"
+             ng-class="{ '_active': page === ctrl.currentPage }"
+             ng-repeat="page in ctrl.pages"
+             ng-click="ctrl.setCurrentPage(page)">
 
             {{page + 1}}
 
-        </button>
+        </div>
     </div>
 
     <div class="search-body">
@@ -61,7 +55,10 @@
                 <div class="search-list__item-image">
                     <img src="{{video.imgUrl}}">
                 </div>
-                <div class="search-list__item-title">{{video.title}}</div>
+                <div class="search-list__item-content">
+                    <div class="search-list__item-title">{{video.title}}</div>
+                    <div class="search-list__item-description">{{video.description}}</div>
+                </div>
             </a>
 
         </div>

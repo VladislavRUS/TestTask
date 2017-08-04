@@ -1,57 +1,99 @@
 .search {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
 
-    &-tab {
+    a {
+        text-decoration: none;
+    }
+
+    &-options {
         padding: 10px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #fbfbfb;
+
+        &__body {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__toggle {
+            position: absolute;
+            top: 4px;
+            right: -40px;
+            cursor: pointer;
+            color: #777;
+
+            &:hover {
+                color: #f44336;
+            }
+        }
+
+        &__sort {
+            font-size: 13px;
+            display: flex;
+
+            &-btn {
+                padding-left: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    color: #f44336;
+                }
+            }
+        }
 
         &__input {
-            width: 80%;
+            padding: 0 20px;
+        }
+
+    }
+
+    &-tab {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__input {
+            flex-grow: 1;
         }
 
         &__btn {
-            height: 30px;
-            width: 50px;
+            height: 40px;
+            width: 100px;
             background-color: white;
-            border: 1px solid black;
+            border-top: 1px solid #a9a9a9;
+            border-right: 1px solid #a9a9a9;
+            border-bottom: 1px solid #a9a9a9;
+            box-sizing: border-box;
             text-align: center;
-            line-height: 30px;
+            line-height: 40px;
             cursor: pointer;
-        }
-    }
 
-    &-header {
-        padding: 10px 3px;
-        border-bottom: 1px solid blue;
-
-        &__title {
-            display: flex;
-            flex-direction: row;
-            color: cornflowerblue;
-
-            &-left {
-                font-size: 20px;
-            }
-
-            &-right {
-                margin-left: auto;
-                font-size: 14px;
+            &:hover {
+                background: #f44336;
+                color: #fff;
             }
         }
     }
 
     &-pages {
         padding: 10px 0;
+        display: flex;
+        justify-content: center;
 
         &__button {
             margin-right: 10px;
             cursor: pointer;
+            background: #fff;
+            border: 1px solid #a9a9a9;
+            padding: 5px 10px;
+
+            &:hover {
+                background: rgba(0,0,0,.04);
+            }
 
             &._active {
                 font-weight: bold;
+                background: #f44336;
+                color: #fff;
             }
         }
     }
@@ -61,18 +103,36 @@
     }
 
     &-list {
-        width: 40%;
+        width: 60%;
         margin: 0 auto;
+        padding-bottom: 20px;
 
         &__item {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             background-color: white;
-            padding: 20px;
             box-shadow: 0 0 13px rgba(0,0,0,.1);
             transition: transform .2s ease;
+
+            &-content {
+                padding: 15px;
+            }
+
+            &-title {
+                font-weight: bold;
+                font-size: 16px;
+                padding-bottom: 10px;
+                color: #333;
+
+                &:hover {
+                    color: #f44336;
+                }
+            }
+
+            &-description {
+                font-size: 14px;
+                color: #777;
+            }
 
             &:hover {
                 transform: scale(1.05)
